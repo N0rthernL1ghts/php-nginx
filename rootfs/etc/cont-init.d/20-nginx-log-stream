@@ -1,5 +1,5 @@
 #!/usr/bin/with-contenv sh
-SET -e
+set -e
 
 echo "Redirecting nginx logs to output streams..."
 
