@@ -1,5 +1,7 @@
 FROM nlss/php-fpm
 
+ENV WEB_ROOT www
+
 RUN apk add --update nginx tzdata
 
 # Install gomplate
