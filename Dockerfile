@@ -1,6 +1,6 @@
 FROM nlss/php-fpm
 
-ENV WEB_ROOT www
+ENV WEB_ROOT html
 
 RUN apk add --update nginx tzdata
 
