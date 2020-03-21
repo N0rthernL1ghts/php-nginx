@@ -8,3 +8,5 @@ RUN apk add --update nginx tzdata
 COPY --from=hairyhenderson/gomplate:v3.6.0-slim /gomplate  /usr/bin/gomplate
 
 ADD rootfs /
+
+EXPOSE 80
