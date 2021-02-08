@@ -2,7 +2,7 @@
 set -e
 
 echo "Parsing virtual host template..."
-/usr/bin/gomplate -V \
+/usr/local/bin/gomplate -V \
   -o /etc/nginx/sites-available/app.conf \
   -f /etc/templates/tmpl-app-nginx.conf
 
