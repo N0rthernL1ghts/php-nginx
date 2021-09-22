@@ -1,4 +1,4 @@
-FROM nlss/php-fpm
+FROM --platform=${TARGETPLATFORM} nlss/php-fpm
 
 ENV WEB_ROOT html
 
