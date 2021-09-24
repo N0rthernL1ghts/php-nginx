@@ -1,4 +1,5 @@
-FROM --platform=${TARGETPLATFORM} nlss/php-fpm
+ARG PHP_VERSION=7.4
+FROM --platform=${TARGETPLATFORM} nlss/php-fpm:${PHP_VERSION}
 
 ENV WEB_ROOT html
 

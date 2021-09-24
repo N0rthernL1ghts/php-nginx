@@ -1,4 +1,18 @@
 #!/usr/bin/env sh
 
+PHP_VERSION=7.4
+CACHE_DIR="/tmp/.buildx-cache"
+
 docker buildx create --use --name build --node build --driver-opt network=host
-docker buildx build --pull --push --platform "linux/amd64,linux/armhf,linux/aarch64" --tag "nlss/php-nginx:7.4" --tag "nlss/php-nginx:latest" .
+
+echo "> Building nginx-php ${TARGET_VERSION}"
+
+docker buildx build \
+  --pull \
+  --push \
+  --cache-from "type=local,src=${CACHE_DIR}" \
+  --cache-to "type=local,dest=${CACHE_DIR}" \
+  --build-arg "PHP_VERSION=${PHP_VERSION}" \
+  --platform "linux/amd64,linux/armhf,linux/aarch64" \
+  --tag "nlss/php-nginx:${PHP_VERSION}" \
+  --tag "nlss/php-nginx:latest" .
