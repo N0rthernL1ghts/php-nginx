@@ -1,6 +1,11 @@
 #!/usr/bin/with-contenv sh
 set -e
 
+# Backwards compatibility
+if [ -n "${VIRTUAL_HOST}" ] && [ -z "${VHOST}" ]; then
+  export VHOST="${VIRTUAL_HOST}"
+fi
+
 echo "Parsing virtual host template..."
 /usr/local/bin/gomplate -V \
   -o /etc/nginx/sites-available/app.conf \
